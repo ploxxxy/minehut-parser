@@ -44,3 +44,40 @@ table {
     background: var(--ploxxy-pagination); 
 }
 
+#standwithukraine{
+    font-weight: 400;
+    display:block;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    line-height:1.2em;
+    padding:.5em 1em;
+    color: #ccc;
+    font-weight:600;
+    background: transparent;
+    transform:translateY(-100%);
+    animation:fadeIn 1s 2s ease-out forwards
+}
+
+#standwithukraine:before{
+    content:"";
+    display:block;
+    flex-shrink:0;
+    width:1.7em;
+    height:1em;
+    background:linear-gradient(#0057b8,#0057b8 50%,gold 50%,gold);
+    margin-right:1em
+}
+
+@keyframes fadeIn{
+    0%{
+        transform:translateY(-100%)
+    }
+    100%{
+        transform:translateY(0%)
+    }
+}
+
+a:visited {
+    text-decoration: none;
+}

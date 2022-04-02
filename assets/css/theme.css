@@ -49,6 +49,7 @@
     border: none; }
   
   input.gridjs-input {
+    color: var(--ploxxy-pagination);
     outline: none;
     background-color: var(--ploxxy-light);
     border: 1px solid var(--ploxxy-light);

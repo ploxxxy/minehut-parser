@@ -28,7 +28,8 @@ new gridjs.Grid({
         hidden: true
     },{
         name: 'Service Start Date',
-        formatter: (cell) => new Date(cell).toLocaleDateString()
+        formatter: (cell) => new Date(cell).toLocaleDateString(),
+        hidden: true
     },{
         name: 'Server Plan',
     },{
@@ -36,7 +37,10 @@ new gridjs.Grid({
         hidden: true
     },{
         name: 'Connected Servers',
-        formatter: (cell) => cell.toString().split(',').join(', ') || '-',
+        // formatter: (cell) => cell.toString().split(',').join(', ') || '-',
+        formatter: (cell) => {
+
+        },
         width: '225px'
     },{
         name: 'Connectable',
