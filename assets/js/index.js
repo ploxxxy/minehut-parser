@@ -19,7 +19,8 @@ new gridjs.Grid({
     },{
         name: 'MOTD',
         formatter: (cell) => cell.replace(/&.{1}/g, ''),
-        sort: { enabled: false }
+        sort: { enabled: false },
+        width: '25%',
     },{
         name: 'Players',
         data: (row) => row[3] + '/' + row[4]    
