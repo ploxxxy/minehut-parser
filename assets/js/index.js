@@ -12,6 +12,7 @@ new gridjs.Grid({
     columns: 
     [{
         name: 'ID',
+        formatter: (cell) => gridjs.html(`<a href="https://api.minehut.com/server/${cell}">${cell}</a>`),
     },{
         name: 'Name',
     },{
@@ -37,11 +38,7 @@ new gridjs.Grid({
         hidden: true
     },{
         name: 'Connected Servers',
-        // formatter: (cell) => cell.toString().split(',').join(', ') || '-',
-        formatter: (cell) => {
-
-        },
-        width: '225px'
+        formatter: (cell) => gridjs.html(cell.join(' ').replace(/([^\s]+)/g, '<a href="https://api.minehut.com/server/$1">$1</a>') || '-'),
     },{
         name: 'Connectable',
         formatter: (cell) => cell ? 'Yes' : 'No'

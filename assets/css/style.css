@@ -22,10 +22,6 @@ table {
     margin-right: auto;
     padding: 25px;
 }
-/* 
-.container {
-    padding: 25px
-} */
 
 ::-webkit-scrollbar {
     width: 8px;
@@ -78,6 +74,20 @@ table {
     }
 }
 
-a:visited {
-    text-decoration: none;
+a:link {
+    color: var(--ploxxy-primary);
+}
+  
+  a:visited {
+    color: var(--ploxxy-primary);
+}
+  
+  a:hover {
+    color: var(--ploxxy-primary);
+    filter: brightness(0.6);
+}
+  
+  a:active {
+    color: var(--ploxxy-primary);
+    filter: brightness(1.5);
 }
