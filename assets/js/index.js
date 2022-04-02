@@ -1,8 +1,9 @@
 new gridjs.Grid({
     fixedHeader: true,
-    width: '1360px',
-    height: '680px',
+    width: '1460px',
+    height: '700px',
     search: true,
+    sort: true,
     pagination: {
         enabled: true,
         limit: 10,
@@ -17,10 +18,11 @@ new gridjs.Grid({
         name: 'Name',
     },{
         name: 'MOTD',
-        formatter: (cell) => cell.replace(/&.{1}/g, '')
+        formatter: (cell) => cell.replace(/&.{1}/g, ''),
+        sort: { enabled: false }
     },{
         name: 'Players',
-        data: (row) => row[3] + '/' + row[4]
+        data: (row) => row[3] + '/' + row[4]    
     },{
         name: 'test1',
         hidden: true
@@ -41,10 +43,12 @@ new gridjs.Grid({
         formatter: (cell) => gridjs.html(cell.join(' ').replace(/([^\s]+)/g, '<a href="https://api.minehut.com/server/$1">$1</a>') || '-'),
     },{
         name: 'Connectable',
-        formatter: (cell) => cell ? 'Yes' : 'No'
+        formatter: (cell) => gridjs.html(cell ? '✔&#xFE0F' : '❌&#xFE0F'),
+        sort: { enabled: false }
     },{
         name: 'Visibility',
-        formatter: (cell) => cell ? 'Yes' : 'No'
+        formatter: (cell) => gridjs.html(cell ? '✔&#xFE0F' : '❌&#xFE0F'),
+        sort: { enabled: false }
     },],
 
     server: {
