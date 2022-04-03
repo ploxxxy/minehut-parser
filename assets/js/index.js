@@ -9,71 +9,91 @@ new gridjs.Grid({
         limit: 10,
         buttonsCount: 1,
     },
-
     columns: 
     [{
         name: 'ID',
-        formatter: (cell) => gridjs.html(`<a href="https://api.minehut.com/server/${cell}" target="_blank">${cell}</a>`),
+        data: row => row[0].staticInfo._id,
+        formatter: (cell) => gridjs.html(`<a href="/server.html?q=${cell}" target="_blank">${cell}</a>`),
     },{
         name: 'Name',
+        data: row => row[0].name,
     },{
         name: 'MOTD',
+        data: row => row[0].motd,
         formatter: (cell) => cell.replace(/&.{1}/g, ''),
         sort: { enabled: false },
         width: '25%',
     },{
         name: 'Players',
-        data: (row) => row[3] + '/' + row[4]    
-    },{
-        name: 'test1',
-        hidden: true
-    },{
-        name: 'test2',
-        hidden: true
-    },{
-        name: 'Service Start Date',
-        formatter: (cell) => new Date(cell).toLocaleDateString(),
-        hidden: true
+        data: row => `${row[0].playerData.playerCount}/${row[0].staticInfo.planMaxPlayers}`,
+        sort: {
+            compare: (a, b) => {
+                a = Number(a.split('/')[0])
+                b = Number(b.split('/')[0])
+                if (a > b) {
+                    return 1
+                } else if (a < b) {
+                    return -1
+                } else {
+                    return 0
+                }
+            }
+        }
     },{
         name: 'Server Plan',
-    },{
-        name: 'Platform',
-        hidden: true
+        data: row => row[0].staticInfo.serverPlan,
+        sort: {
+            compare: (a, b) => {
+                function getWeight(plan) {
+                    const weight = {
+                        'Free': 0,
+                        'Daily': 1,
+                        'MH20': 2,
+                        'YEARLY MH20': 3,
+                        'MH35': 4,
+                        'YEARLY MH35': 5,
+                        'MH75': 6,
+                        'YEARLY MH75': 7,
+                        'MH Unlimited': 8,
+                        'YEARLY MH Unlimited': 9
+                    }
+                    return weight[plan] || weight['Free']
+                }
+
+                if (getWeight(a) > getWeight(b)) {
+                    return 1;
+                  } else if (getWeight(a) < getWeight(b)) {
+                        return -1;
+                  } else {
+                    return 0;
+                  }
+            }
+        }
     },{
         name: 'Connected Servers',
-        formatter: (cell) => gridjs.html(cell.join(' ').replace(/([^\s]+)/g, '<a href="https://api.minehut.com/server/$1" target="_blank">$1</a>') || '-'),
+        data: row => row[0].staticInfo.connectedServers,
+        formatter: (cell) => gridjs.html(cell.join(' ').replace(/([^\s]+)/g, '<a href="/server.html?q=$1" target="_blank">$1</a>') || '-'),
     },{
         name: 'Connectable',
+        data: row => row[0].connectable,
         formatter: (cell) => gridjs.html(cell ? '✔&#xFE0F' : '❌&#xFE0F'),
         sort: { enabled: false }
     },{
         name: 'Visibility',
+        data: row => row[0].visibility,
         formatter: (cell) => gridjs.html(cell ? '✔&#xFE0F' : '❌&#xFE0F'),
         sort: { enabled: false }
     },],
-
     server: {
         url: 'https://api.minehut.com/servers',
-        then: data => data.servers.map(server =>
-            [server.staticInfo._id, server.name, server.motd, server.playerData.playerCount, server.staticInfo.planMaxPlayers, server.staticInfo.serviceStartDate, server.staticInfo.serverPlan, server.staticInfo.platform, server.staticInfo.connectedServers, server.connectable, server.visibility]
-            ),
-        handle: (res) => {
-            if (res.status === 404) return {data: []};
-            if (res.ok) {
-                return res.json();
-            }
-
-            throw Error('oh no :(');
-        },
+        then: data => data.servers.map(server => [server])
     },
-
     style: {
         td: {
             'padding': '6px 12px',
             'color': '#ccc'
         }
     },
-
     language: {
         'search': {
             'placeholder': '🔍 Search...'
