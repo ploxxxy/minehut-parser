@@ -78,12 +78,7 @@ new gridjs.Grid({
         data: row => row[0].connectable,
         formatter: (cell) => gridjs.html(cell ? '✔&#xFE0F' : '❌&#xFE0F'),
         sort: { enabled: false }
-    },{
-        name: 'Visibility',
-        data: row => row[0].visibility,
-        formatter: (cell) => gridjs.html(cell ? '✔&#xFE0F' : '❌&#xFE0F'),
-        sort: { enabled: false }
-    },],
+    }],
     server: {
         url: 'https://api.minehut.com/servers',
         then: data => data.servers.map(server => [server])
