@@ -22,9 +22,9 @@ new gridjs.Grid({
         data: row => row[0].motd,
         formatter: (cell) => cell.replace(/&.{1}/g, ''),
         sort: { enabled: false },
-        width: '25%',
     },{
         name: 'Players',
+        width: '12%',
         data: row => `${row[0].playerData.playerCount}/${row[0].staticInfo.planMaxPlayers}`,
         sort: {
             compare: (a, b) => {
@@ -41,6 +41,7 @@ new gridjs.Grid({
         }
     },{
         name: 'Server Plan',
+        width: '12%',
         data: row => row[0].staticInfo.serverPlan,
         sort: {
             compare: (a, b) => {
