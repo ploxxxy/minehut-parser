@@ -13,7 +13,7 @@ new gridjs.Grid({
     [{
         name: 'ID',
         data: row => row[0].staticInfo._id,
-        formatter: (cell) => gridjs.html(`<a href="/server.html?q=${cell}" target="_blank">${cell}</a>`),
+        formatter: (cell) => gridjs.html(`<a href="./server.html?q=${cell}" target="_blank">${cell}</a>`),
     },{
         name: 'Name',
         data: row => row[0].name,
@@ -73,7 +73,7 @@ new gridjs.Grid({
     },{
         name: 'Connected Servers',
         data: row => row[0].staticInfo.connectedServers,
-        formatter: (cell) => gridjs.html(cell.join(' ').replace(/([^\s]+)/g, '<a href="/server.html?q=$1" target="_blank">$1</a>') || '-'),
+        formatter: (cell) => gridjs.html(cell.join(' ').replace(/([^\s]+)/g, '<a href="./server.html?q=$1" target="_blank">$1</a>') || '-'),
     },{
         name: 'Connectable',
         data: row => row[0].connectable,
