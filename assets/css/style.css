@@ -1,129 +1,140 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap');
 
 * {
-    font-family: 'Ubuntu Mono', monospace;
+  font-family: 'Ubuntu Mono', monospace;
 }
 
 :root {
-    --ploxxy-light: #222;
-    --ploxxy-borders: #333;
-    --ploxxy-header: #111;
-    --ploxxy-primary: lightgreen;
-    --ploxxy-pagination: #999;
+  --ploxxy-light: #222;
+  --ploxxy-borders: #333;
+  --ploxxy-header: #111;
+  --ploxxy-primary: lightgreen;
+  --ploxxy-pagination: #999;
 }
 
 body {
-    background-color: #111;
+  background-color: #111;
 }
 
 table {
-    margin-left: auto;
-    margin-right: auto;
-    padding: 50px 25px 25px 25px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 50px 25px 25px 25px;
 }
 
 ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+  width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--ploxxy-header); 
+  background: var(--ploxxy-header);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--ploxxy-pagination); 
+  background: var(--ploxxy-pagination);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--ploxxy-pagination); 
+  background: var(--ploxxy-pagination);
 }
 
-a:link, a:visited, a:hover, a:active {
-    color: var(--ploxxy-primary);
-}
-  
-a:hover {
-    filter: brightness(1.5);
-}
-  
+a:link,
+a:visited,
+a:hover,
 a:active {
-    filter: brightness(0.6);
+  color: var(--ploxxy-primary);
 }
+
+a:hover {
+  filter: brightness(1.5);
+}
+
+a:active {
+  filter: brightness(0.6);
+}
+
+[data-column-id='name'] {
+  white-space: 'nowrap';
+}
+
+/* ... */
 
 .gridjs-footer {
-    border-top: 1px solid var(--ploxxy-borders);
-    background-color: var(--ploxxy-light);
-    border-color: var(--ploxxy-borders);
+  border-top: 1px solid var(--ploxxy-borders);
+  background-color: var(--ploxxy-light);
+  border-color: var(--ploxxy-borders);
 }
 input.gridjs-input {
-    color: var(--ploxxy-pagination);
-    background-color: var(--ploxxy-light);
-    border: 1px solid var(--ploxxy-light);
+  color: var(--ploxxy-pagination);
+  background-color: var(--ploxxy-light);
+  border: 1px solid var(--ploxxy-light);
 }
 input.gridjs-input:focus {
-    box-shadow: 0 0 0 3px var(--ploxxy-primary)
+  box-shadow: 0 0 0 3px var(--ploxxy-primary);
 }
 .gridjs-pagination {
-    color: var(--ploxxy-pagination);
+  color: var(--ploxxy-pagination);
 }
 .gridjs-pagination .gridjs-pages button {
-    border: 1px solid var(--ploxxy-borders);
-    background-color: var(--ploxxy-borders);
-    color: var(--ploxxy-pagination);
+  border: 1px solid var(--ploxxy-borders);
+  background-color: var(--ploxxy-borders);
+  color: var(--ploxxy-pagination);
 }
 .gridjs-pagination .gridjs-pages button:focus {
-    box-shadow: 0 0 0 2px var(--ploxxy-primary);
+  box-shadow: 0 0 0 2px var(--ploxxy-primary);
 }
 .gridjs-pagination .gridjs-pages button:hover {
-    background-color: var(--ploxxy-primary);
-    color: var(--ploxxy-header);
+  background-color: var(--ploxxy-primary);
+  color: var(--ploxxy-header);
 }
-.gridjs-pagination .gridjs-pages button:disabled, .gridjs-pagination .gridjs-pages button[disabled], .gridjs-pagination .gridjs-pages button:hover:disabled {
-    background-color: var(--ploxxy-borders);
-    color: var(--ploxxy-light);
+.gridjs-pagination .gridjs-pages button:disabled,
+.gridjs-pagination .gridjs-pages button[disabled],
+.gridjs-pagination .gridjs-pages button:hover:disabled {
+  background-color: var(--ploxxy-borders);
+  color: var(--ploxxy-light);
 }
 .gridjs-pagination .gridjs-pages button.gridjs-spread {
-    background-color: var(--ploxxy-light);
+  background-color: var(--ploxxy-light);
 }
 .gridjs-pagination .gridjs-pages button.gridjs-currentPage {
-    background-color: var(--ploxxy-primary);
-    color: var(--ploxxy-header);
+  background-color: var(--ploxxy-primary);
+  color: var(--ploxxy-header);
 }
 .gridjs-pagination .gridjs-pages button:last-child {
-    border-right: 1px solid var(--ploxxy-borders);
+  border-right: 1px solid var(--ploxxy-borders);
 }
 .gridjs-tbody {
-    background-color: var(--ploxxy-light);
+  background-color: var(--ploxxy-light);
 }
 td.gridjs-td {
-    border: 1px solid var(--ploxxy-borders);
-    background-color: var(--ploxxy-light);
+  border: 1px solid var(--ploxxy-borders);
+  background-color: var(--ploxxy-light);
 }
 th.gridjs-th {
-    position: relative;
-    color: var(--ploxxy-header);
-    background-color: var(--ploxxy-primary);
-    border: 1px solid var(--ploxxy-borders);
+  position: relative;
+  color: var(--ploxxy-header);
+  background-color: var(--ploxxy-primary);
+  border: 1px solid var(--ploxxy-borders);
 }
 th.gridjs-th-sort:hover {
-    background-color: var(--ploxxy-primary);
-    filter: brightness(1.2);
+  background-color: var(--ploxxy-primary);
+  filter: brightness(1.2);
 }
 th.gridjs-th-sort:focus {
-    background-color: var(--ploxxy-borders);
+  background-color: var(--ploxxy-borders);
 }
 th.gridjs-th-fixed {
-    box-shadow: 0 1px 0 0 var(--ploxxy-borders);
+  box-shadow: 0 1px 0 0 var(--ploxxy-borders);
 }
 @supports (-moz-appearance: none) {
-    th.gridjs-th-fixed {
-        box-shadow: 0 0 0 1px var(--ploxxy-borders);
-   }
+  th.gridjs-th-fixed {
+    box-shadow: 0 0 0 1px var(--ploxxy-borders);
+  }
 }
 .gridjs-wrapper {
-    border-color: var(--ploxxy-borders);
+  border-color: var(--ploxxy-borders);
 }
 .gridjs-loading-bar {
-    background-color: var(--ploxxy-light);
+  background-color: var(--ploxxy-light);
 }
